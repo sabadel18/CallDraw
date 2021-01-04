@@ -147,6 +147,37 @@ var comandosFiguras= [
     }
 },
 {
+    indexes:["borrar *","eliminar *"],
+    action:function(i,wildcard){
+        var figuras=["círculo","rectángulo","triángulo","elipse","cuadrado"]
+        switch(figuras.indexOf(wildcard.trim())){
+                case 0:
+                    artyom.say("Borando círculos");
+                    borrarTipoFigura("circulo");
+                    break;
+                case 1:
+                    artyom.say("Borando rectángulos");
+                    borrarTipoFigura("rectangulo");
+                    break;
+                case 2:
+                    artyom.say("Borando triángulos");
+                    borrarTipoFigura("triángulo");
+                    break;
+                case 3:
+                    artyom.say("Borando elipses");
+                    borrarTipoFigura("elipse");
+                    break;
+                case 4:
+                    artyom.say("Borando cuadrados");
+                    borrarTipoFigura("cuadrado");
+                    break;
+                default:
+                    artyom.say("No existe la figura a Borrrar, por favor, mire la ayuda de comandos")
+                    break;
+        }            
+    }
+},
+{
     indexes:["borrar","borrar figura"],
     action:function(i){
         if(borrarUltimaFigura()){

@@ -245,6 +245,21 @@ function borrarUltimaFigura(){
         return false;
     }
 }
+
+function borrarTipoFigura(tipo){
+    var aux=[]
+    var cont=0;
+
+    for(i=0;i<numFiguras;i++){
+        if(typeof numFiguras[i]!=tipo){
+            aux[cont]=numFiguras[i];
+            cont++;
+        }
+    }
+
+    figuras=aux;
+    numFiguras=cont;
+}
  
 
 
