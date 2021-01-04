@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Draw</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="text/javascript" src="lib/artyom.window.js"></script>
+  <script src="lib/p5.js"></script>
+  <script src="Cambios.js"></script>
+</head>
+<body>
+  <h1>
+    Call Draw
+  </h1>
+  <p>
+    Botón para permitir activar el microfono         
+    <button id="ActivarMicro" type="button"onclick="StartArtyomOneCommand();">Activar micro</button> <br>
+  </p>
+
+  <p>
+    Botón para desactivar  el microfono         
+    <button id="ActivarMicro" type="button" onclick="StopArtyom();">Desactivar micro</button> <br>
+  </p>
+
+  <p>Si quieres obtener información de los comandos disponibles de la aplicación haz clic 
+      <button id="ayudaComandos" onclick="cambios.ayudaComandos()">aqui</button>
+  </p>
+  <p id="ayuda"></p>
+  <table border>
+    <tr>
+      <td rowspan="2">Variables</td>
+      <td>Color de figura</td>
+      <td>Tamaño de grosor</td>
+      <td>Color de grosor</td>
+      <td>Ancho de la figura</td>
+      <td>Alto de la figura</td>
+    </tr>
+    <tr>
+      <td id="colorFigura">negro</td>
+      <td id="TamañoGrosor">0</td>
+      <td id="ColorGrosor">negro</td>
+      <td id="AnchoFigura">0</td>
+      <td id="AltoFigura">0</td>
+    </tr>
+  </table>
+
+
+  <script src="sketch.js"></script>
+
+  <script src="comandos.js"></script>
+  
+</body>
+
+</html>
