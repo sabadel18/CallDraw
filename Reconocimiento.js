@@ -1,8 +1,7 @@
 var x;
 var y;
 window.onload = function() {
-    var video = document.getElementById('video');
-    var canvas = document.getElementById('canvas');
+    var canvas = document.getElementById('defaultCanvas0');
     var context = canvas.getContext('2d');
 
     tracking.ColorTracker.registerColor('red', function(r, g, b) {
@@ -26,11 +25,11 @@ window.onload = function() {
             }
 
             context.strokeStyle = rect.color;
-            context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+            context.beginPath();
+            context.arc(rect.x, rect.y, rect.width, 0, rect.height * Math.PI);
+            context.stroke();
             context.font = '11px Helvetica';
             context.fillStyle = "#fff";
-            context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
-            context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
         });
     });
 
