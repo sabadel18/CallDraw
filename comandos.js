@@ -150,7 +150,7 @@ var comandosFiguras= [
 {
     indexes:["borrar *","eliminar *"],
     action:function(i,wildcard){
-        var figuras=["círculo","rectángulo","triángulo","elipse","cuadrado"]
+        var figuras=["círculos","rectángulos","triángulos","elipses","cuadrados"]
         switch(figuras.indexOf(wildcard.trim())){
                 case 0:
                     artyom.say("Borando círculos");
