@@ -36,7 +36,7 @@ function drawAll(){
 	
 function addCirculo(){
     if(anchura<=0){
-        artyom.say("Para poder dibujar un circulo es necesario que el ancho de la figura sea mayor que 0")
+        artyom.say("Para poder dibujar un circulo es necesario que el ancho de la figura sea mayor que 0");
         return;
     }
     var max=800;
@@ -47,11 +47,11 @@ function addCirculo(){
 
 function addRectangulo(){
     if(anchura<=0){
-        artyom.say("Para poder dibujar un rectangulo es necesario que el ancho de la figura sea mayor que 0")
+        artyom.say("Para poder dibujar un rectangulo es necesario que el ancho de la figura sea mayor que 0");
         return;
     }
     if(altura<=0){
-        artyom.say("Para poder dibujar un rectangulo es necesario que el alto de la figura sea mayor que 0")
+        artyom.say("Para poder dibujar un rectangulo es necesario que el alto de la figura sea mayor que 0");
         return;
     }
     var max=800;
@@ -69,11 +69,11 @@ function addTriangulo(){
 
 function addElipse(){
     if(anchura<=0){
-        artyom.say("Para poder dibujar una elipse es necesario que el ancho de la figura sea mayor que 0")
+        artyom.say("Para poder dibujar una elipse es necesario que el ancho de la figura sea mayor que 0");
         return;
     }
     if(altura<=0){
-        artyom.say("Para poder dibujar una elipse es necesario que el alto de la figura sea mayor que 0")
+        artyom.say("Para poder dibujar una elipse es necesario que el alto de la figura sea mayor que 0");
         return;
     }
     var max=800;
@@ -84,7 +84,7 @@ function addElipse(){
 
 function addCuadrado(){
     if(anchura<=0){
-        artyom.say("Para poder dibujar un cuadrado es necesario que el ancho de la figura sea mayor que 0")
+        artyom.say("Para poder dibujar un cuadrado es necesario que el ancho de la figura sea mayor que 0");
         return;
     }
     var max=800;

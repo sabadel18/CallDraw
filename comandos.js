@@ -29,7 +29,7 @@ var comandosFiguras= [
                     addCuadrado();
                     break;
                 default:
-                    artyom.say("No existe la figura a dibujar, por favor, mire la ayuda de comandos")
+                    artyom.say("No existe la figura a dibujar, por favor, mire la ayuda de comandos");
                     break;
             }            
         }
@@ -105,7 +105,7 @@ var comandosFiguras= [
                     break;
 
                 default:
-                    artyom.say("El tipo de grosor pasado no existe, por favor mire la ayuda de los comandos")
+                    artyom.say("El tipo de grosor pasado no existe, por favor mire la ayuda de los comandos");
                     break;
         }
     }
@@ -172,7 +172,7 @@ var comandosFiguras= [
                     borrarTipoFigura("cuadrado");
                     break;
                 default:
-                    artyom.say("No existe la figura a Borrrar, por favor, mire la ayuda de comandos")
+                    artyom.say("No existe la figura a Borrrar, por favor, mire la ayuda de comandos");
                     break;
         }            
     }
