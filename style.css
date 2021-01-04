@@ -36,4 +36,8 @@ td{
     color:white;
     text-align: center;
 }
-
+video,canvas {
+    margin-left: 100px;
+    margin-top: 35px;
+    position: absolute;
+}
