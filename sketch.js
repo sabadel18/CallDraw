@@ -337,9 +337,12 @@ let sketch = function (p) {
 
     mostrarPuntero = function (valor) {
         if (valor == true && mostrarP == true) {
+            artyom.say("el puntero ya esta mostrado");
+
             return;
         }
         else if (valor == false && mostrarP == false) {
+            artyom.say("el puntero ya esta ocultado");
             return;
         }
         else if (valor == false && mostrarP == true) {

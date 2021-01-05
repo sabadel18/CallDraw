@@ -223,7 +223,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["valor de x *", "x *", "posición x *"],
+        indexes: ["valor de x *", "x *"],
         action: function (i, wildcard) {
             if (!isNaN(wildcard)) {
                 x = parseInt(wildcard.trim());
@@ -236,7 +236,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["valor de y *", "y *", "posición y *"],
+        indexes: ["valor de y *", "y *"],
         action: function (i, wildcard) {
             if (!isNaN(wildcard)) {
                 y = parseInt(wildcard.trim());
