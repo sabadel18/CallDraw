@@ -6,28 +6,52 @@ body {
 
 p{
     color:white;
+    font-family: "Verdana","Cooper Black";
+    font-size: 1.2em;
 }
 
 h1{
-	font-family: "Cooper Black";
-    text-align: center;
+   font-family: "Verdana","Cooper Black";
+   text-align: center;
    font-stretch: expanded;
-   color:red;
+   color:white;
    font-size: 4em;
-   letter-spacing: 0.2em;
+   letter-spacing: 0.05em;
    border-radius: 0.2em;
    font-size: 90px;
-   background:gray;
+   background:black;
+}
+
+
+button{
+    width: 10em;
+    height: 2.5em;
+    font-family: "Verdana","Cooper Black";
+    border-color:#5CE1E6;
+    border-radius: 1em;
+    background-color: black;
+    color:white;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+button:hover{
+    color:black;
+    background-color:white;
 }
 
 #valores{
     display:inline;
+    font-family: "Verdana","Cooper Black";
+    font-size: 1.2em;
 }
 
 
 td{
     color:white;
     text-align: center;
+    font-family: "Verdana","Cooper Black";
+    font-size: 1.2em;
 }
 
 #container{
@@ -37,10 +61,49 @@ td{
     display: flex;
 }
 
+#divVar{
+    border-style:solid;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    display: flex;
+}
+
 #defaultCanvas0{
     width: 1200px;
     height: 900px;  
+    border-radius: 1.5em;
 }
 
+#video{
+    border-style:solid;
+    border-color: white;
+    border-radius: 1.5em;
+}
 
+li{
+    font-family: "Verdana","Cooper Black";
+    font-size: 1.2em;
+}
+
+b{
+    color:#5CE1E6;
+}
+
+h2{
+    font-family: "Verdana","Cooper Black";
+    color:white;
+    text-align: center;
+    margin-left: 1em;
+}
+
+#menu{
+    display: flex ;
+    justify-content:center;
+}
+
+#ActivarMicro,#DesactivarMicro,#ayudaComandos{
+    margin-right: 5%;
+    margin-top:2em;
+    margin-bottom: 2em;
+}
 
