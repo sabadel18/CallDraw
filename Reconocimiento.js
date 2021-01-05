@@ -20,18 +20,17 @@ window.onload = function() {
     tracker.on('track', function(event) {
 
         event.data.forEach(function(rect) {
-            console.log(rect.color);
             if (rect.color === 'custom') {
                 rect.color = tracker.customColor;
             }
 
             if(rect.x>=0){
-                x=rect.x;
+                x=rect.x*3;
                 cambios.cambiarX(x);
             }
             
             if(rect.y>=0){
-                y=rect.y;
+                y=rect.y*3;
                 cambios.cambiarY(y);
             }
         });
