@@ -48,10 +48,15 @@ let sketch = function (p) {
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar un circulo es necesario que el ancho de la figura sea mayor que 0");
-                return;
+                return false;
             }
             figura = new Circulo(x, y, anchura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
+            figurasHacer.clear();
+            return true;
+        }
+        else{
+            return false;
         }
     };
 
@@ -59,14 +64,19 @@ let sketch = function (p) {
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar un rectangulo es necesario que el ancho de la figura sea mayor que 0");
-                return;
+                return false;
             }
             if (altura <= 0) {
                 artyom.say("Para poder dibujar un rectangulo es necesario que el alto de la figura sea mayor que 0");
-                return;
+                return false;
             }
-            figura = new Rectangulo(x, y, anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
+            figura = new Rectangulo(x - (anchura / 2), y - (altura / 2), anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
+            figurasHacer.clear();
+            return true;
+        }
+        else{
+            return false;
         }
     };
 
@@ -74,14 +84,19 @@ let sketch = function (p) {
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar un triángulo es necesario que el ancho de la figura sea mayor que 0");
-                return;
+                return false;
             }
             if (altura <= 0) {
                 artyom.say("Para poder dibujar un triángulo es necesario que el alto de la figura sea mayor que 0");
-                return;
+                return false;
             }
             figura = new Triangulo(x, y - (altura / 2), x - (anchura / 2), y + (altura / 2), x + (anchura / 2), y + (altura / 2), colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
+            figurasHacer.clear();
+            return true;
+        }
+        else{
+            return false;
         }
     };
 
@@ -89,14 +104,19 @@ let sketch = function (p) {
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar una elipse es necesario que el ancho de la figura sea mayor que 0");
-                return;
+                return false;
             }
             if (altura <= 0) {
                 artyom.say("Para poder dibujar una elipse es necesario que el alto de la figura sea mayor que 0");
-                return;
+                return false;
             }
             figura = new Elipse(x, y, anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
+            figurasHacer.clear();
+            return true;
+        }
+        else{
+            return false;
         }
     };
 
@@ -104,10 +124,15 @@ let sketch = function (p) {
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar un cuadrado es necesario que el ancho de la figura sea mayor que 0");
-                return;
+                return false;
             }
-            figura = new Rectangulo(x, y, anchura, anchura, colorFigura, tamañoGrosor, colorGrosor);
+            figura = new Cuadrado(x - (anchura / 2), y - (anchura / 2), anchura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
+            figurasHacer.clear();
+            return true;
+        }
+        else{
+            return false;
         }
     };
 
@@ -270,7 +295,8 @@ let sketch = function (p) {
         var cont = 0;
 
         for (i = 0; i < numFiguras; i++) {
-            if (typeof numFiguras[i] != tipo) {
+            alert(typeof numFiguras[i]);
+            if (numFiguras[i].getTipo() != tipo) {
                 aux[cont] = numFiguras[i];
                 cont++;
             }
@@ -375,6 +401,9 @@ let sketch = function (p) {
             p.ellipse(this.x, this.y, this.anchura, this.anchura);
         }
 
+        getTipo() {
+            return "círculo";
+        }
     }
 
 
@@ -395,6 +424,10 @@ let sketch = function (p) {
             p.stroke(this.strokeColor);
 
             p.ellipse(this.x, this.y, this.anchura, this.altura);
+        }
+
+        getTipo() {
+            return "elipse";
         }
 
     }
@@ -418,8 +451,35 @@ let sketch = function (p) {
 
             p.rect(this.x, this.y, this.anchura, this.altura);
         }
+        getTipo() {
+            return "rectángulo";
+        }
 
     }
+
+    class Cuadrado {
+        constructor(posX, posY, lado, colorC, st, stColor) {
+            this.lado = lado;
+            this.x = posX;
+            this.y = posY;
+            this.colorCuadrado = colorC;
+            this.strokeW = st;
+            this.strokeColor = stColor;
+        }
+
+        dibujar() {
+            p.fill(this.colorCuadrado);
+            p.strokeWeight(this.strokeW);
+            p.stroke(this.strokeColor);
+
+            p.rect(this.x, this.y, this.lado, this.lado);
+        }
+        getTipo() {
+            return "cuadrado";
+        }
+
+    }
+
 
     class Triangulo {
         constructor(punto1X, punto1Y, punto2X, punto2Y, punto3X, punto4Y, colorT, st, stColor) {
@@ -440,6 +500,10 @@ let sketch = function (p) {
             p.stroke(this.strokeColor);
 
             p.triangle(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
+        }
+
+        getTipo() {
+            return "triágulo";
         }
     }
 }

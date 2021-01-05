@@ -9,25 +9,35 @@ var comandosFiguras = [
             if (i == 0) {
                 switch (figuras.indexOf(wildcard.trim())) {
                     case 0:
-                        artyom.say("Dibujando círculo");
-                        addCirculo();
+                        if(addCirculo()){
+                            artyom.say("círculo dibujado");
+                        }
                         break;
+
                     case 1:
-                        artyom.say("Dibujando rectángulo");
-                        addRectangulo();
+                        if(addRectangulo()){
+                            artyom.say("rectángulo dibujado");
+                        }
                         break;
+
                     case 2:
-                        artyom.say("Dibujando triángulo");
-                        addTriangulo();
+                        if(addTriangulo()){
+                            artyom.say("triángulo dibujado");
+                        }
                         break;
+
                     case 3:
-                        artyom.say("Dibujando elipse");
-                        addElipse();
+                        if(addElipse()){
+                            artyom.say("elipse dibujada");
+                        }
                         break;
+
                     case 4:
-                        artyom.say("Dibujando cuadrado");
-                        addCuadrado();
+                        if(addCuadrado()){
+                            artyom.say("cuadrado dibujado");
+                        }
                         break;
+
                     default:
                         artyom.say("No existe la figura a dibujar, por favor, mire la ayuda de comandos");
                         break;
@@ -154,11 +164,11 @@ var comandosFiguras = [
             switch (figuras.indexOf(wildcard.trim())) {
                 case 0:
                     artyom.say("Borando círculos");
-                    borrarTipoFigura("circulo");
+                    borrarTipoFigura("círculo");
                     break;
                 case 1:
                     artyom.say("Borando rectángulos");
-                    borrarTipoFigura("rectangulo");
+                    borrarTipoFigura("rectángulo");
                     break;
                 case 2:
                     artyom.say("Borando triángulos");
@@ -188,7 +198,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["guardar canvas *", "guardar lienzo *", "guardar *", "guardar captura como *"],
+        indexes: ["guardar canvas *", "guardar lienzo *",  "guardar captura como *","guardar *",],
         action: function (i, wildcard) {
             guardar(wildcard.trim());
             artyom.say("lienzo guardado con nombre " + wildcard.trim());
@@ -223,7 +233,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["valor de x *", "x *"],
+        indexes: ["valor de x *"],
         action: function (i, wildcard) {
             if (!isNaN(wildcard)) {
                 x = parseInt(wildcard.trim());
@@ -236,7 +246,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["valor de y *", "y *"],
+        indexes: ["valor de y *"],
         action: function (i, wildcard) {
             if (!isNaN(wildcard)) {
                 y = parseInt(wildcard.trim());

@@ -8,6 +8,9 @@ p{
     color:white;
     font-family: "Verdana","Cooper Black";
     font-size: 1.2em;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
 }
 
 h1{
@@ -89,10 +92,11 @@ b{
     color:#5CE1E6;
 }
 
-h2{
+h2,h3{
     font-family: "Verdana","Cooper Black";
     color:white;
-    margin-left: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #menu{
