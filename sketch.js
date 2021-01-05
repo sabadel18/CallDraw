@@ -1,6 +1,7 @@
 let sketch = function (p) {
     let figura;
     let figuras = [];
+    let figurasHacer = [];
     var numFiguras = 0;
     let colorFigura;
     let colorGrosor;
@@ -8,9 +9,10 @@ let sketch = function (p) {
     var anchura;
     var altura;
     var existe = false;
+    var mostrarP = true;
 
     p.setup = function () {
-        p.createCanvas(600*2, 450*2);
+        p.createCanvas(600 * 2, 450 * 2);
         p.background(255, 255, 255);
         colorFigura = p.color(0);
         colorGrosor = p.color(0);
@@ -27,8 +29,10 @@ let sketch = function (p) {
 
         drawAll();
 
-        if(x>=0 && y>=0){
-            dibujarPuntero();
+        if (mostrarP) {
+            if (x >= 0 && y >= 0) {
+                dibujarPuntero();
+            }
         }
 
     };
@@ -68,9 +72,15 @@ let sketch = function (p) {
 
     addTriangulo = function () {
         if (comprobarPos()) {
-            var max = 100;
-            var min = 10;
-            figura = new Triangulo(Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, Math.random() * (max - min) + min, colorFigura, tamañoGrosor, colorGrosor);
+            if (anchura <= 0) {
+                artyom.say("Para poder dibujar un triángulo es necesario que el ancho de la figura sea mayor que 0");
+                return;
+            }
+            if (altura <= 0) {
+                artyom.say("Para poder dibujar un triángulo es necesario que el alto de la figura sea mayor que 0");
+                return;
+            }
+            figura = new Triangulo(x, y - (altura / 2), x - (anchura / 2), y + (altura / 2), x + (anchura / 2), y + (altura / 2), colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
         }
     };
@@ -85,7 +95,7 @@ let sketch = function (p) {
                 artyom.say("Para poder dibujar una elipse es necesario que el alto de la figura sea mayor que 0");
                 return;
             }
-            figura = new Elipse(x,y, anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
+            figura = new Elipse(x, y, anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
         }
     };
@@ -292,6 +302,58 @@ let sketch = function (p) {
     };
 
 
+    guardarLienzo = function (nombre) {
+        return p.saveCanvas(nombre, 'png');
+    };
+
+
+    rehacerFigura = function () {
+        if (figurasHacer.length > 0) {
+            var figuraUltima = figurasHacer[figurasHacer.length - 1];
+            figuras[numFiguras] = figuraUltima;
+            numFiguras++;
+
+            figurasHacer.pop();
+        }
+        else {
+            artyom.say("no hay figuras para recuperar");
+        }
+
+
+    };
+
+    deshacerFigura = function () {
+        if (numFiguras > 0) {
+            var figuraUltima = figuras[numFiguras - 1];
+            figuras.pop()
+            numFiguras--;
+
+            figurasHacer[figurasHacer.length] = figuraUltima;
+        }
+        else {
+            artyom.say("no hay figuras para deshacer");
+        }
+    };
+
+    mostrarPuntero = function (valor) {
+        if (valor == true && mostrarP == true) {
+            return;
+        }
+        else if (valor == false && mostrarP == false) {
+            return;
+        }
+        else if (valor == false && mostrarP == true) {
+            artyom.say("ocultando puntero");
+            mostrarP = valor;
+        }
+        else if (valor == true && mostrarP == false) {
+            artyom.say("mostrando puntero");
+            mostrarP = valor;
+        }
+
+    };
+
+
     class Circulo {
         constructor(posX, posY, diametro, colorC, st, stColor) {
             this.anchura = diametro;
@@ -378,4 +440,4 @@ let sketch = function (p) {
         }
     }
 }
-let myp5 = new p5(sketch,'container');
+let myp5 = new p5(sketch, 'container');

@@ -19,11 +19,14 @@
   </div>
 
   <div id="menu">
-    <button id="ActivarMicro" type="button" width="100" heigth="50" onclick="StartArtyomOneCommand();">Activar micro</button> <br>
-    <button id="DesactivarMicro" type="button" onclick="StopArtyom();">Desactivar micro</button> <br>
-    <button id="ayudaComandos" type="button" onclick="cambios.ayudaComandos()">Ayuda</button>
+    <button id="Inicio" type="button"  onclick="cambios.inicio();">Presentación</button>
+    <button id="ActivarMicro" type="button" onclick="StartArtyomOneCommand();">Activar micro</button>
+    <button id="DesactivarMicro" type="button" onclick="StopArtyom();">Desactivar micro</button>
+    <button id="guardarCanvas" type="button" onClick="guardar('');" >Guardar</button>
+    <button id="ayudaComandos" type="button" onclick="cambios.ayudaComandos();">Ayuda</button>
   </div>
 
+  <p id="presentacion"></p>
   <p id="ayuda"></p>
 
 

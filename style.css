@@ -92,7 +92,6 @@ b{
 h2{
     font-family: "Verdana","Cooper Black";
     color:white;
-    text-align: center;
     margin-left: 1em;
 }
 
@@ -101,7 +100,7 @@ h2{
     justify-content:center;
 }
 
-#ActivarMicro,#DesactivarMicro,#ayudaComandos{
+#ActivarMicro,#DesactivarMicro,#ayudaComandos,#guardarCanvas,#Inicio{
     margin-right: 5%;
     margin-top:2em;
     margin-bottom: 2em;
