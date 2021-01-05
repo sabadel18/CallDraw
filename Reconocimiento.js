@@ -25,12 +25,12 @@ window.onload = function() {
             }
 
             if(rect.x>=0){
-                x=rect.x*3;
+                x=rect.x*2;
                 cambios.cambiarX(x);
             }
             
             if(rect.y>=0){
-                y=rect.y*3;
+                y=rect.y*2;
                 cambios.cambiarY(y);
             }
         });

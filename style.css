@@ -31,10 +31,16 @@ td{
 }
 
 #container{
-    background:white;
     border-style:solid;
     border-top-width: 10px;
     border-bottom-width: 10px;
+    display: flex;
 }
+
+#defaultCanvas0{
+    width: 1200px;
+    height: 900px;  
+}
+
 
 

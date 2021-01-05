@@ -10,7 +10,7 @@ let sketch = function (p) {
     var existe = false;
 
     p.setup = function () {
-        p.createCanvas(1900, 1080);
+        p.createCanvas(600*2, 450*2);
         p.background(255, 255, 255);
         colorFigura = p.color(0);
         colorGrosor = p.color(0);
@@ -25,11 +25,12 @@ let sketch = function (p) {
             existe = false;
         }
 
+        drawAll();
+
         if(x>=0 && y>=0){
             dibujarPuntero();
         }
 
-        drawAll();
     };
 
     drawAll = function () {
