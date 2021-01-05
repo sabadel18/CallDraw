@@ -51,6 +51,16 @@ class Cambios{
         var celda=document.getElementById('AltoFigura');
         celda.innerHTML=alto;
     }
+
+    cambiarX(valorDeX){
+        var celda=document.getElementById('valorX');
+        celda.innerHTML=valorDeX;
+    }
+
+    cambiarY(valorDeY){
+        var celda=document.getElementById('valorY');
+        celda.innerHTML=valorDeY;
+    }
 }
 
 var cambios=new Cambios();

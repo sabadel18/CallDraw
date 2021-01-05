@@ -40,7 +40,6 @@ var comandosFiguras= [
     smart:true,
     indexes:["anchura *","ancho *"],
     action:function(i,wildcard){
-        alert(!isNaN(wildcard))
         if(!isNaN(wildcard)){
         var number=parseInt(wildcard.trim());
 

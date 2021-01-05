@@ -20,13 +20,6 @@ h1{
    background:gray;
 }
 
-#container{
-    border-style:solid;
-    border-top-width: 10px;
-    border-right-width: 10px;
-    border-bottom-width: 10px;
-    border-left-width: 10px;
-}
 #valores{
     display:inline;
 }
@@ -36,4 +29,12 @@ td{
     color:white;
     text-align: center;
 }
+
+#container{
+    background:white;
+    border-style:solid;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
 
