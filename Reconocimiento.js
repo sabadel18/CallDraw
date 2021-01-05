@@ -6,7 +6,7 @@ window.onload = function() {
     var context = canvas.getContext('2d');
 
     tracking.ColorTracker.registerColor('red', function(r, g, b) {
-        if (r > 150 && g < 50 && b < 50) {
+        if (r > 160 && g < 70 && b < 70) {
             return true;
         }
         return false;
@@ -20,6 +20,7 @@ window.onload = function() {
     tracker.on('track', function(event) {
 
         event.data.forEach(function(rect) {
+            console.log(rect.color);
             if (rect.color === 'custom') {
                 rect.color = tracker.customColor;
             }
