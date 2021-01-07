@@ -4,10 +4,10 @@ let sketch = function (p) {
     let figurasHacer = [];
     var numFiguras = 0;
     let colorFigura;
-    let colorGrosor;
-    let tamañoGrosor;
-    var anchura;
-    var altura;
+    let colorGrosor=0;
+    let tamañoGrosor=0;
+    var anchura=0;
+    var altura=0;
     var existe = false;
     var mostrarP = true;
 
@@ -16,7 +16,6 @@ let sketch = function (p) {
         p.background(255, 255, 255);
         colorFigura = p.color(0);
         colorGrosor = p.color(0);
-        tamañoGrosor = 0;
     };
 
     p.draw = function () {
@@ -45,6 +44,10 @@ let sketch = function (p) {
 
 
     addCirculo = function () {
+        alert(x);
+        alert(y);
+        alert(anchura);
+        alert(altura);
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar un circulo es necesario que el ancho de la figura sea mayor que 0");
@@ -52,7 +55,7 @@ let sketch = function (p) {
             }
             figura = new Circulo(x, y, anchura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
-            figurasHacer.clear();
+            figurasHacer=[];
             return true;
         }
         else{
@@ -72,7 +75,7 @@ let sketch = function (p) {
             }
             figura = new Rectangulo(x - (anchura / 2), y - (altura / 2), anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
-            figurasHacer.clear();
+            figurasHacer=[];
             return true;
         }
         else{
@@ -92,7 +95,7 @@ let sketch = function (p) {
             }
             figura = new Triangulo(x, y - (altura / 2), x - (anchura / 2), y + (altura / 2), x + (anchura / 2), y + (altura / 2), colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
-            figurasHacer.clear();
+            figurasHacer=[];
             return true;
         }
         else{
@@ -112,7 +115,7 @@ let sketch = function (p) {
             }
             figura = new Elipse(x, y, anchura, altura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
-            figurasHacer.clear();
+            figurasHacer=[];
             return true;
         }
         else{
@@ -128,7 +131,7 @@ let sketch = function (p) {
             }
             figura = new Cuadrado(x - (anchura / 2), y - (anchura / 2), anchura, colorFigura, tamañoGrosor, colorGrosor);
             existe = true;
-            figurasHacer.clear();
+            figurasHacer=[];
             return true;
         }
         else{
@@ -309,8 +312,9 @@ let sketch = function (p) {
 
     dibujarPuntero = function () {
         p.fill(p.color('#FF0000'));
+        p.strokeWeight(1);
+        p.stroke(p.color('#FF0000')); 
         p.ellipse(x, y, 20, 20);
-
     };
 
     comprobarPos = function () {
@@ -380,6 +384,14 @@ let sketch = function (p) {
             mostrarP = valor;
         }
 
+    };
+
+    getWidth=function(){
+        return p.width;
+    };
+
+    getHeight=function(){
+        return p.height;
     };
 
 

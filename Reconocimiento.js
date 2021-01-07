@@ -1,10 +1,6 @@
-var x;
-var y;
+var x=0;
+var y=0;
 window.onload = function() {
-
-    var canvas =$("div>canvas")[0];
-    var context = canvas.getContext('2d');
-
     tracking.ColorTracker.registerColor('red', function(r, g, b) {
         if (r > 160 && g < 70 && b < 70) {
             return true;
@@ -24,12 +20,12 @@ window.onload = function() {
                 rect.color = tracker.customColor;
             }
 
-            if(rect.x>=0){
+            if(rect.x>=0 && rect.x<=getWidth()){
                 x=rect.x*2;
                 cambios.cambiarX(x);
             }
             
-            if(rect.y>=0){
+            if(rect.y>=0 && rect.y<=getHeight()){
                 y=rect.y*2;
                 cambios.cambiarY(y);
             }

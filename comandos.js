@@ -9,31 +9,31 @@ var comandosFiguras = [
             if (i == 0) {
                 switch (figuras.indexOf(wildcard.trim())) {
                     case 0:
-                        if(addCirculo()){
+                        if (addCirculo()) {
                             artyom.say("círculo dibujado");
                         }
                         break;
 
                     case 1:
-                        if(addRectangulo()){
+                        if (addRectangulo()) {
                             artyom.say("rectángulo dibujado");
                         }
                         break;
 
                     case 2:
-                        if(addTriangulo()){
+                        if (addTriangulo()) {
                             artyom.say("triángulo dibujado");
                         }
                         break;
 
                     case 3:
-                        if(addElipse()){
+                        if (addElipse()) {
                             artyom.say("elipse dibujada");
                         }
                         break;
 
                     case 4:
-                        if(addCuadrado()){
+                        if (addCuadrado()) {
                             artyom.say("cuadrado dibujado");
                         }
                         break;
@@ -88,7 +88,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["tamaño grosor *", "grosor *", "grosor tamaño *"],
+        indexes: ["tamaño grosor *", "grosor tamaño *", "grosor de tamaño *", "grosor *"],
         action: function (i, wildcard) {
             var tamaños = ["nada", "pequeño", "mediano", "medio", "grande"];
             switch (tamaños.indexOf(wildcard.trim())) {
@@ -198,7 +198,7 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["guardar canvas *", "guardar lienzo *",  "guardar captura como *","guardar *",],
+        indexes: ["guardar canvas *", "guardar lienzo *", "guardar captura como *", "guardar *",],
         action: function (i, wildcard) {
             guardar(wildcard.trim());
             artyom.say("lienzo guardado con nombre " + wildcard.trim());
@@ -214,7 +214,6 @@ var comandosFiguras = [
     {
         indexes: ["dejar de grabar", "parar", "desactivar micro", "desactivar micrófono"],
         action: function (i) {
-            artyom.say("desactivando micrófono");
             StopArtyom();
         }
     },
@@ -236,8 +235,16 @@ var comandosFiguras = [
         indexes: ["valor de x *"],
         action: function (i, wildcard) {
             if (!isNaN(wildcard)) {
-                x = parseInt(wildcard.trim());
-                cambios.cambiarX(x);
+                var num = parseInt(wildcard.trim());
+
+                if(num<=getWidth() && num>=0){
+                    x=num;
+                    cambios.cambiarX(x);
+                }
+                else{
+                    artyom.say("la posición x debe estar comprendida entre 0 y "+getWidth());
+                }
+                
             }
             else {
                 artyom.say("la x debe ser un número");
@@ -246,11 +253,18 @@ var comandosFiguras = [
     },
     {
         smart: true,
-        indexes: ["valor de y *"],
+        indexes: ["valor de y *","valor de i *"],
         action: function (i, wildcard) {
             if (!isNaN(wildcard)) {
-                y = parseInt(wildcard.trim());
-                cambios.cambiarY(y);
+                var num = parseInt(wildcard.trim());
+
+                if(num<=getHeight() && num>=0){
+                    y=num;
+                    cambios.cambiarY(y);
+                }
+                else{
+                    artyom.say("la posición de y debe estar comprendida entre 0 y "+getHeight());
+                }
             }
             else {
                 artyom.say("la y debe ser un número");
@@ -281,19 +295,22 @@ function StartArtyomOneCommand() {
         return alert("Stop artyom first !");
     }
 
-    //Although the voice can't be changed,
-    // You need to set the language for the speech
-    // Recognition, see the documentation for more examples
+
     artyom.initialize({
         lang: "es-ES",
         debug: true,
         continuous: true,
         listen: true
     });
+    artyom.say("activando micrófono");
+
 }
 
 function StopArtyom() {
-    artyom.fatality();
+    if (artyom.isRecognizing()) {
+        artyom.say("desactivando micrófono");
+        artyom.fatality();
+    }
 }
 
 function guardar(cadena) {
