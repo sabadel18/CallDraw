@@ -328,10 +328,7 @@ let sketch = function (p) {
 
 
     guardarLienzo = function (nombre) {
-        mostrarP = false;
-        var captura= p.saveCanvas(nombre, 'png');
-        mostrarP=true;
-        return captura;
+        return p.saveCanvas(nombre, 'png');
     };
 
 
@@ -391,6 +388,7 @@ let sketch = function (p) {
     getHeight=function(){
         return p.height;
     };
+
 
 
     class Circulo {
