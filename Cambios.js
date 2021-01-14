@@ -10,6 +10,7 @@ class Cambios{
             cad += "<li><b>Circulo</b>: para poder dibujar un círculo se necesita el ancho de la figura La forma de llamar este comando es 'dibujar circulo' </li>";
             cad += "<li><b>Rectangulo</b>: para poder dibujar un rectangulo se necesitan tanto el alto como el ancho La forma de llamar este comando es 'dibujar rectangulo' </li>";                        
             cad += "<li><b>Cuadrado</b>: para poder dibujar un cuadrado se necesita el ancho de la figura, que equivale al lado La forma de llamar este comando es 'dibujar cuadrado' </li>"; 
+            cad += "<li><b>Triángulo</b>: para poder dibujar un triangulo se necesita el ancho de la figura. Solo se dibujan cuadrados equilateros; y la forma de dibujar un triángulo por voz es com el comando 'dibujar cuadrado' </li>"; 
             cad+="<li><b>Anchura</b>: cambia el valor actual de la anchura para dibujar una figura. La forma de usarlo es 'anchura' o 'ancho' y un número</li>";
             cad+="<li><b>Altura</b>: cambia el valor actual de la altura para dibujar una figura. La forma de usarlo es 'altura' o 'alto' y un número </li>";
             cad+="<li><b>Color de la figura</b>: cambia el color de las figuras a dibujar posteriormente. Este debe estar entre una lista de colores definidos (blanco, cian, amarillo, rojo, verde, magenta, naranja, violeta, lima, azul, morado, gris, negro). El modo de uso es 'color', 'color figura' o 'cambiar color' y el color deseado</li>";

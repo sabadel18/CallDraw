@@ -44,10 +44,6 @@ let sketch = function (p) {
 
 
     addCirculo = function () {
-        alert(x);
-        alert(y);
-        alert(anchura);
-        alert(altura);
         if (comprobarPos()) {
             if (anchura <= 0) {
                 artyom.say("Para poder dibujar un circulo es necesario que el ancho de la figura sea mayor que 0");
@@ -298,7 +294,6 @@ let sketch = function (p) {
         var cont = 0;
 
         for (i = 0; i < numFiguras; i++) {
-            alert(typeof numFiguras[i]);
             if (numFiguras[i].getTipo() != tipo) {
                 aux[cont] = numFiguras[i];
                 cont++;
@@ -333,7 +328,10 @@ let sketch = function (p) {
 
 
     guardarLienzo = function (nombre) {
-        return p.saveCanvas(nombre, 'png');
+        mostrarP = false;
+        var captura= p.saveCanvas(nombre, 'png');
+        mostrarP=true;
+        return captura;
     };
 
 
